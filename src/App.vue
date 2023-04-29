@@ -50,15 +50,15 @@ i18n.t;
               </el-select>
             </div>
             <div v-else class="desktop-links">
-              <el-link href="/" type="success">{{ $t("nav.root") }}</el-link>
+              <el-link href="/" type="success">{{ i18n.t("nav.root") }}</el-link>
               <el-link href="/bio" type="success">
-                {{ $t("nav.bio") }}
+                {{ i18n.t("nav.bio") }}
               </el-link>
               <el-link href="/links" type="success">
-                {{ $t("nav.contacts") }}
+                {{ i18n.t("nav.contacts") }}
               </el-link>
               <el-link href="/recommendations" type="success">
-                {{ $t("nav.recommendations") }}
+                {{ i18n.t("nav.recommendations") }}
               </el-link>
             </div>
             <el-select
