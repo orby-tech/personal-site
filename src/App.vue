@@ -22,7 +22,6 @@ const setLocale = (lang: string) => {
 const locale = ref(i18n.getLocale());
 
 const setLink = (e: any) => {
-  console.log(e);
   router.push(e);
 };
 
@@ -40,6 +39,11 @@ i18n.t;
               <el-select class="menu" v-model="namedLink" @change="setLink">
                 <el-option value="/" :label="i18n.t('nav.root')"> </el-option>
                 <el-option value="/bio" :label="i18n.t('nav.bio')"> </el-option>
+                <el-option
+                  value="/my-products"
+                  :label="i18n.t('nav.my_products')"
+                >
+                </el-option>
                 <el-option value="/links" :label="i18n.t('nav.contacts')">
                 </el-option>
                 <el-option
@@ -50,9 +54,14 @@ i18n.t;
               </el-select>
             </div>
             <div v-else class="desktop-links">
-              <el-link href="/" type="success">{{ i18n.t("nav.root") }}</el-link>
+              <el-link href="/" type="success">{{
+                i18n.t("nav.root")
+              }}</el-link>
               <el-link href="/bio" type="success">
                 {{ i18n.t("nav.bio") }}
+              </el-link>
+              <el-link href="/my-products" type="success">
+                {{ i18n.t("nav.my_products") }}
               </el-link>
               <el-link href="/links" type="success">
                 {{ i18n.t("nav.contacts") }}

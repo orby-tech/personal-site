@@ -17,6 +17,7 @@ const messages = {
     nav: {
       root: "Root",
       bio: "Bio",
+      my_products: "My Products",
       contacts: "Contacts",
       recommendations: "Recommendations",
     },
@@ -46,6 +47,7 @@ const messages = {
     nav: {
       root: "Raís",
       bio: "Biografía",
+      my_products: "Mis productos",
       contacts: "Contactos",
       recommendations: "Recomendaciones",
     },
@@ -60,7 +62,8 @@ const messages = {
       yo: "Tengo 24 años",
       make: "Hago frontend, un poco de backend y la gran automatización",
       interested: "Me gustas si te interesa",
-      cantlive: "No puedo vivir sin docker, máquinas virtuales y mi pequeña esposa",
+      cantlive:
+        "No puedo vivir sin docker, máquinas virtuales y mi pequeña esposa",
     },
     links: {
       goto: "Ir a los enlaces",
@@ -77,7 +80,6 @@ const i18n = createI18n({
   messages: messages,
 });
 i18n.install(app);
-console.log(app)
 app.use(createPinia());
 app.use(ElementPlus);
 

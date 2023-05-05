@@ -5,6 +5,7 @@ import BioView from "../views/BioView.vue";
 import RecommendationsView from "../views/RecommendationsView.vue";
 import TextToWordsParser from "../views/TextToWordsParser.vue";
 import ReactionMetricsTool from "../views/ReactionMetricsTool.vue";
+import MyProducts from "../views/MyProducts.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +19,11 @@ const router = createRouter({
       path: "/bio",
       name: "bio",
       component: BioView,
+    },
+    {
+      path: "/my-products",
+      name: "my-products",
+      component: MyProducts,
     },
     {
       path: "/links",
