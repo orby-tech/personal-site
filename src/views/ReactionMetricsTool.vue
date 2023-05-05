@@ -9,7 +9,8 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
-  TimeScale, registerables
+  TimeScale,
+  registerables,
 } from "chart.js";
 import { Line, Chart } from "vue-chartjs";
 import "chartjs-adapter-moment";
@@ -133,17 +134,19 @@ const endTry = () => {
     state.value = "RESULTS";
     countResults();
   }
-
 };
 </script>
 
 <template>
   <main>
     <div v-if="state == 'RESULTS'" class="results-container">
-      <div>Results block</div>
-      <Chart :type="'line'" :data="data" :options="options" />
-
-      <el-button @click="() => startTest()">Start Test</el-button>
+      <el-button @click="() => startTest()" class="start-button"
+        >Start Test</el-button
+      >
+      <h3>The lower the result, the better.</h3>
+      <div class="chart-container">
+        <Chart :type="'line'" :data="data" :options="options" />
+      </div>
     </div>
     <div v-if="state === 'TRY'" class="try-container">
       Try: {{ countRetries }} / 5
@@ -171,11 +174,15 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-left: 50px;
+  padding: 50px;
 }
 
 .results-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .try-container {
@@ -209,5 +216,14 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.start-button {
+  padding: 40px;
+}
+
+.chart-container {
+  width: 100%;
+  height: 500px;
 }
 </style>
