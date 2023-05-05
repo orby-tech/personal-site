@@ -72,7 +72,7 @@ ul {
   justify-content: space-evenly;
 
   gap: 20px;
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 
 li {
