@@ -225,6 +225,9 @@ const getOptionsByRange = (range: Range, values: Record<number, number>) => {
     },
   };
 };
+
+const getRandom = (min: number, max: number): number =>
+  Math.random() * (max - min) + min;
 </script>
 
 <template>
@@ -265,12 +268,17 @@ const getOptionsByRange = (range: Range, values: Record<number, number>) => {
     <div v-if="state === 'WAIT_GREEN'" class="wait-green-container">
       Wait red and click
     </div>
-    <div
-      v-if="state === 'WAIT_RED'"
-      class="wait-red-container"
-      @click="() => endTry()"
-    >
-      Click!
+    <div v-if="state === 'WAIT_RED'" class="wait-red-container">
+      <el-button
+        @click="() => endTry()"
+        class="end-try-button"
+        :style="`left: ${getRandom(-110, 110)}px; top: ${getRandom(
+          -110,
+          110
+        )}px;`"
+      >
+        Click!
+      </el-button>
     </div>
   </main>
 </template>
@@ -346,5 +354,10 @@ main > div {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.end-try-button {
+  padding: 20px;
+  position: absolute;
 }
 </style>
