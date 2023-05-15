@@ -55,8 +55,8 @@ function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-const previosValues = JSON.parse(
-  localStorage.getItem("reaction-results") || "{}"
+const previosValues = ref<Record<number, number>>(
+  JSON.parse(localStorage.getItem("reaction-results") || "{}")
 );
 
 const countResults = () => {
@@ -64,16 +64,15 @@ const countResults = () => {
   const averageValue =
     clearedValues.reduce((p, c) => p + c, 0) / clearedValues.length;
 
-  const previosValues = JSON.parse(
+  const _previosValues = JSON.parse(
     localStorage.getItem("reaction-results") || "{}"
   );
-  previosValues[new Date().getTime()] = averageValue;
-  localStorage.setItem("reaction-results", JSON.stringify(previosValues));
+  _previosValues[new Date().getTime()] = averageValue;
+  localStorage.setItem("reaction-results", JSON.stringify(_previosValues));
 
   testResults.value = [];
   state.value = "RESULTS";
-  previosValues.value = { ...previosValues.value };
-  // window.location.reload();
+  previosValues.value = _previosValues;
 };
 
 const startTest = () => {
@@ -202,16 +201,26 @@ const getDataByRange = (range: Range, _values: Record<number, number>) => {
   return data;
 };
 
-const getOptionsByRange = (range: Range) => {
-  const min = getMinByRange(range);
+const getOptionsByRange = (range: Range, values: Record<number, number>) => {
+  const minByRange = getMinByRange(range).getTime();
+  const minByValues = Math.min(
+    ...Object.keys(values)
+      .map((x) => +x)
+      .filter((x) => x > minByRange)
+  );
+  const maxByValues = Math.max(...Object.keys(values).map((x) => +x));
+  const min = Math.max(minByRange, minByValues);
+  const max = Math.min(Date.now(), maxByValues);
+
+  const diff = max - min;
   return {
     responsive: true,
     scales: {
       x: {
         type: "time",
         time: {},
-        min,
-        max: Date.now() + 1000 * 60 * 60 * 2,
+        min: min - diff * 0.1,
+        max: max + diff * 0.1,
       },
     },
   };
@@ -244,7 +253,7 @@ const getOptionsByRange = (range: Range) => {
         <Chart
           :type="'line'"
           :data="getDataByRange(settedRange, previosValues)"
-          :options="getOptionsByRange(settedRange)"
+          :options="getOptionsByRange(settedRange, previosValues)"
         />
       </div>
     </div>
