@@ -75,8 +75,11 @@ i18n.t;
               @change="setLocale"
               class="lang-selections"
             >
-              <el-option value="en">en</el-option>
-              <el-option value="es">es</el-option>
+              <el-option value="en">English</el-option>
+              <el-option value="es">Español</el-option>
+              <el-option value="ru">Русский</el-option>
+              <el-option value="kz">Қазақ</el-option>
+              <el-option value="sr">Српски</el-option>
             </el-select>
           </div>
         </nav>
