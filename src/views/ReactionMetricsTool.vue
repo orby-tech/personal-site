@@ -127,7 +127,9 @@ const getMinByRange = (range: Range) => {
   } else if (range === Range.last3Month) {
     min = new Date(now - 1000 * 60 * 60 * 24 * 90);
   } else if (range === Range.allTime) {
-    min = new Date(Math.min(...Object.keys(previosValues).map((x) => +x)));
+    min = new Date(
+      Math.min(...Object.keys(previosValues.value).map((x) => +x))
+    );
   }
 
   return min;
@@ -151,8 +153,8 @@ const filterValuesByRange = (
 
 const getDataByRange = (range: Range, _values: Record<number, number>) => {
   const values = filterValuesByRange(_values, range);
-
-  const averageValue = getAverage(Object.values(values));
+  const objValues = Object.values(values);
+  const averageValue = getAverage(objValues);
 
   const data = {
     labels: Object.keys(values).map((k) => new Date(+k).toLocaleDateString()),
@@ -184,16 +186,17 @@ const getDataByRange = (range: Range, _values: Record<number, number>) => {
       {
         label: i18n.t("reaction_metric_tool.graphs.fload_average_value"),
         data: Object.keys(values).map((k, i) => {
-          const slice = Object.values(values).slice(
-            i,
-            i + 10 > Object.values(values).length - 1
-              ? Object.values(values).length - 1
-              : i + 10
+          const aproximationStep = 3;
+          const slice = objValues.slice(
+            i - aproximationStep > 0 ? i - aproximationStep : 0,
+            i + aproximationStep > objValues.length
+              ? objValues.length
+              : i + aproximationStep
           );
           const averageValue = getAverage(slice);
           return {
             x: new Date(+k),
-            y: averageValue,
+            y: averageValue || 10,
           };
         }),
         fill: false,
@@ -293,10 +296,12 @@ const getRandom = (min: number, max: number): number =>
     <div v-if="state === 'TRY'" class="try-container">
       {{ i18n.t("reaction_metric_tool.try") }}: {{ countRetries }} / 5
 
-      <el-button @click="() => startTry()">Start Test</el-button>
+      <el-button @click="() => startTry()">
+        {{ i18n.t("reaction_metric_tool.start_test") }}
+      </el-button>
     </div>
     <div v-if="state === 'WAIT_GREEN'" class="wait-green-container">
-      i18n.t('reaction_metric_tool.wait_red_and_click' )
+      {{ i18n.t("reaction_metric_tool.wait_red_and_click") }}
     </div>
     <div v-if="state === 'WAIT_RED'" class="wait-red-container">
       <el-button
@@ -388,6 +393,6 @@ main > div {
 
 .end-try-button {
   padding: 20px;
-  position: absolute;
+  position: relative;
 }
 </style>
