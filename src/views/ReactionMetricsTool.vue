@@ -14,6 +14,8 @@ import {
 } from "chart.js";
 import { Line, Chart } from "vue-chartjs";
 import "chartjs-adapter-moment";
+import { useI18n } from "vue3-i18n";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -25,6 +27,8 @@ ChartJS.register(
   TimeScale,
   ...registerables
 );
+
+const i18n = useI18n();
 
 type State = "RESULTS" | "TRY" | "WAIT_RED" | "WAIT_GREEN";
 type Range =
@@ -156,7 +160,7 @@ const getDataByRange = (range: Range, _values: Record<number, number>) => {
       ...(![Range.allTime, Range.last3Month].includes(range)
         ? [
             {
-              label: "results",
+              label: i18n.t("reaction_metric_tool.graphs.results"),
               data: Object.keys(values).map((k) => ({
                 x: new Date(+k),
                 y: values[+k],
@@ -168,7 +172,7 @@ const getDataByRange = (range: Range, _values: Record<number, number>) => {
           ]
         : []),
       {
-        label: "averageValue",
+        label: i18n.t("reaction_metric_tool.graphs.average_value"),
         data: Object.keys(values).map((k) => ({
           x: new Date(+k),
           y: averageValue,
@@ -178,7 +182,7 @@ const getDataByRange = (range: Range, _values: Record<number, number>) => {
         tension: 0.1,
       },
       {
-        label: "averageValue",
+        label: i18n.t("reaction_metric_tool.graphs.fload_average_value"),
         data: Object.keys(values).map((k, i) => {
           const slice = Object.values(values).slice(
             i,
@@ -233,24 +237,50 @@ const getRandom = (min: number, max: number): number =>
 <template>
   <main>
     <div v-if="state == 'RESULTS'" class="results-container">
-      <el-button @click="() => startTest()" class="start-button"
-        >Start Test</el-button
-      >
+      <el-button @click="() => startTest()" class="start-button">
+        {{ i18n.t("reaction_metric_tool.start_test") }}
+      </el-button>
       <label>
-        <h3>The lower the result, the better.</h3>
-        <p>The reaction time is related to your level of tiredness.</p>
+        <h3>
+          {{ i18n.t("reaction_metric_tool.the_lower_the_result_the_better") }}
+        </h3>
+        <p>{{ i18n.t("reaction_metric_tool.the_reaction_time_is_related") }}</p>
         <p>
-          The result is how quickly you react, and a fast reaction time means
-          you react quickly.
+          {{ i18n.t("reaction_metric_tool.the_result_is_how_quickly") }}
         </p>
-        <p>So, the faster your reaction time, the better.</p>
+        <p>
+          {{
+            i18n.t(
+              "reaction_metric_tool.the_faster_your_reaction_time_the_better"
+            )
+          }}
+        </p>
       </label>
       <el-select v-model="settedRange">
-        <el-option :value="Range.lastDay"> last day</el-option>
-        <el-option :value="Range.lastWeek"> last week</el-option>
-        <el-option :value="Range.lastMonth"> last month</el-option>
-        <el-option :value="Range.last3Month"> last 3 month</el-option>
-        <el-option :value="Range.allTime">all time</el-option>
+        <el-option
+          :value="Range.lastDay"
+          :label="i18n.t('reaction_metric_tool.last_day')"
+        >
+        </el-option>
+        <el-option
+          :value="Range.lastWeek"
+          :label="i18n.t('reaction_metric_tool.last_week')"
+        >
+        </el-option>
+        <el-option
+          :value="Range.lastMonth"
+          :label="i18n.t('reaction_metric_tool.last_month')"
+        >
+        </el-option>
+        <el-option
+          :value="Range.last3Month"
+          :label="i18n.t('reaction_metric_tool.last_3_months')"
+        >
+        </el-option>
+        <el-option
+          :value="Range.allTime"
+          :label="i18n.t('reaction_metric_tool.all_time')"
+        ></el-option>
       </el-select>
       <div class="chart-container">
         <Chart
@@ -261,12 +291,12 @@ const getRandom = (min: number, max: number): number =>
       </div>
     </div>
     <div v-if="state === 'TRY'" class="try-container">
-      Try: {{ countRetries }} / 5
+      {{ i18n.t("reaction_metric_tool.try") }}: {{ countRetries }} / 5
 
       <el-button @click="() => startTry()">Start Test</el-button>
     </div>
     <div v-if="state === 'WAIT_GREEN'" class="wait-green-container">
-      Wait red and click
+      i18n.t('reaction_metric_tool.wait_red_and_click' )
     </div>
     <div v-if="state === 'WAIT_RED'" class="wait-red-container">
       <el-button
@@ -277,7 +307,7 @@ const getRandom = (min: number, max: number): number =>
           110
         )}px;`"
       >
-        Click!
+        {{ i18n.t("reaction_metric_tool.end_try_click") }}
       </el-button>
     </div>
   </main>

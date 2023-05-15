@@ -42,6 +42,29 @@ const messages = {
       joke: "This little page is big joke",
       orNot: "Or not?",
     },
+    reaction_metric_tool: {
+      start_test: "Start test",
+      the_lower_the_result_the_better: "The lower the result, the better",
+      the_reaction_time_is_related:
+        "The reaction time is related to your level of tiredness.",
+      the_result_is_how_quickly:
+        "The result is how quickly you react, and a fast reaction time means you react quickly.",
+      the_faster_your_reaction_time_the_better:
+        "So, the faster your reaction time, the better.",
+      last_day: "Last day",
+      last_week: "Last week",
+      last_month: "Last month",
+      last_3_months: "Last 3 months",
+      all_time: "All time",
+      try: "Try",
+      wait_red_and_click: "Wait for red and click!",
+      end_try_click: "Click!",
+      graphs: {
+        results: "Results",
+        average_value: "Average value",
+        fload_average_value: "Floating average value",
+      },
+    },
   },
   es: {
     nav: {
@@ -72,6 +95,29 @@ const messages = {
     footer: {
       joke: "Esta pequeña página es una gran broma.",
       orNot: "¿O no?",
+    },
+    reaction_metric_tool: {
+      start_test: "Iniciar prueba",
+      the_lower_the_result_the_better: "Cuanto menor sea el resultado, mejor",
+      the_reaction_time_is_related:
+        "El tiempo de reacción está relacionado con tu nivel de cansancio.",
+      the_result_is_how_quickly:
+        "El resultado es la rapidez con la que reaccionas, y un tiempo de reacción rápido significa que reaccionas rápidamente.",
+      the_faster_your_reaction_time_the_better:
+        "Entonces, cuanto más rápido sea tu tiempo de reacción, mejor.",
+      last_day: "Último día",
+      last_week: "La semana pasada",
+      last_month: "Mes pasado",
+      last_3_months: "Últimos 3 meses",
+      all_time: "Todo el tiempo",
+      try: "Intenta",
+      wait_red_and_click: "¡Espera al rojo y haz clic!",
+      end_try_click: "¡Haz clic!",
+      graphs: {
+        resultados: "Resultados",
+        valor_promedio: "Valor promedio",
+        float_average_value: "Valor promedio flotante",
+      },
     },
   },
 };
