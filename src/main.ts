@@ -244,7 +244,7 @@ const kz: typeof en = {
 
 const sr: typeof en = {
   nav: {
-    root: "Роот",
+    root: "Корен",
     bio: "Био",
     my_products: "Моји производи",
     contacts: "Контакти",
