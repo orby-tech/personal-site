@@ -114,9 +114,9 @@ const messages = {
       wait_red_and_click: "¡Espera al rojo y haz clic!",
       end_try_click: "¡Haz clic!",
       graphs: {
-        resultados: "Resultados",
-        valor_promedio: "Valor promedio",
-        float_average_value: "Valor promedio flotante",
+        results: "Resultados",
+        average_value: "Valor promedio",
+        fload_average_value: "Valor promedio flotante",
       },
     },
   },
