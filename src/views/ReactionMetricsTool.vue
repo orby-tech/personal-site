@@ -224,7 +224,15 @@ const getOptionsByRange = (range: Range) => {
       <el-button @click="() => startTest()" class="start-button"
         >Start Test</el-button
       >
-      <h3>The lower the result, the better.</h3>
+      <label>
+        <h3>The lower the result, the better.</h3>
+        <p>The reaction time is related to your level of tiredness.</p>
+        <p>
+          The result is how quickly you react, and a fast reaction time means
+          you react quickly.
+        </p>
+        <p>So, the faster your reaction time, the better.</p>
+      </label>
       <el-select v-model="settedRange">
         <el-option :value="Range.lastDay"> last day</el-option>
         <el-option :value="Range.lastWeek"> last week</el-option>
@@ -266,7 +274,16 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+main > div {
+  gap: 20px;
+  overflow-x: hidden;
 }
 
 .results-container {
