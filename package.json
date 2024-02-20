@@ -10,7 +10,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "deploy": "npm run build-only && scp -r ./dist/* root@31.192.235.64:./main/dist/"
+    "deploy": "npm run build-only && aws s3 cp ./dist s3://orby-tech.space --recursive"
   },
   "dependencies": {
     "chart.js": "^4.3.0",
