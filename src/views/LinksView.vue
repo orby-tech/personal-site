@@ -19,7 +19,7 @@ const links = [
     href: "mailto:tibode495@gmail.com",
     image: email,
   }, {
-    href: "https://www.linkedin.com/in/timur-bondarenko-2625801a6",
+    href: "https://www.linkedin.com/in/timur-bondarenko",
     image: linkedin,
   },
 ];

@@ -3,7 +3,7 @@ const myProducts = [
   {
     title: "roll-over",
     description: "Group of products from intusiasts to intusiasts",
-    link: "https://orby-tech.notion.site/orby-tech/roll-over-34d0c7117b1c405d91d28fa41cb54162",
+    link: "https://roll-over.org/?utm_source=site&utm_campaign=orby-tech",
   },
   {
     title: "AfishaPeredelano",
@@ -15,23 +15,23 @@ const myProducts = [
     description: "A tool to measure reaction time to detect cognitive decline",
     link: "/reaction-metrics-tool",
   },
-  // {
-  //   title: "Balances App",
-  //   description:
-  //     "A powerful tool designed to efficiently manage balances, transactions, and multiple currencies. With this software, you can easily keep track of your financial activities and ensure that you always have an accurate overview of your finances.",
-  //   link: "http://balances-app.orby-tech.space",
-  // },
-  // {
-  //   title: "Brainbuster Map",
-  //   description:
-  //     "Graphical representation of the scince topics, their relations to each other and test questions for each topic",
-  //   link: "http://brainbuster.orby-tech.space",
-  // },
-  // {
-  //   title: "Currencies Service",
-  //   description: "Service to get currencies information from different sources",
-  //   link: "http://currencies.orby-tech.space",
-  // },
+  {
+    title: "Balances App",
+    description:
+      "A powerful tool designed to efficiently manage balances, transactions, and multiple currencies.",
+    link: "http://balances-app.orby-tech.space",
+  },
+  {
+    title: "Brainbuster Map",
+    description:
+      "Graphical representation of the scince topics, their relations to each other and test questions for each topic",
+    link: "http://brainbuster.orby-tech.space",
+  },
+  {
+    title: "Currencies Service",
+    description: "Service to get currencies information from different sources",
+    link: "http://currencies.orby-tech.space",
+  },
 ];
 </script>
 
