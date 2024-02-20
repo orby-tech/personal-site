@@ -28,7 +28,7 @@ const en = {
   },
   bio: {
     name: "My name Timur Bonderenko",
-    yo: "I am 24 yo",
+    yo: "I am 25 yo",
     make: "I make frontend, a little backend and the big automatization",
     interested: "I like you, if you are interested",
     cantlive: "I can't live without docker, VMs and my little wife",
@@ -82,7 +82,7 @@ const es: typeof en = {
   },
   bio: {
     name: "Mi nombre Timur Bonderenko",
-    yo: "Tengo 24 años",
+    yo: "Tengo 25 años",
     make: "Hago frontend, un poco de backend y la gran automatización",
     interested: "Me gustas si te interesa",
     cantlive:
@@ -137,7 +137,7 @@ const ru: typeof en = {
   },
   bio: {
     name: "Меня зовут Тимур Бондаренко",
-    yo: "Мне 24 года",
+    yo: "Мне 25 года",
     make: "Я занимаюсь фронтендом, немного бэкенда и большой автоматизацией",
     interested: "Мне нравятся люди, которые интересны",
     cantlive:
@@ -202,7 +202,7 @@ const kz: typeof en = {
   },
   bio: {
     name: "Менің атым Тимур Бондаренко",
-    yo: "Менің жасым 24-те",
+    yo: "Менің жасым 25-те",
     make: "Мен фронтальды, кейбір серверлерді және көптеген автоматтандыруды жасаймын",
     interested: "Маған қызығушылық танытатын адамдар ұнайды",
     cantlive:
@@ -258,7 +258,7 @@ const sr: typeof en = {
   },
   bio: {
     name: "Моје име Тимур Бондеренко",
-    yo: "Имам 24 године",
+    yo: "Имам 25 године",
     make: "Ја правим фронтенд, мали бацкенд и велику аутоматизацију",
     interested: "Свиђаш ми се, ако си заинтересован",
     cantlive: "Не могу да живим без Доцкер-а, ВМ-а и моје мале жене",
